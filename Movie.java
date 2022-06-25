@@ -5,9 +5,7 @@ public class Movie {
   public static final int  NEW_RELEASE = 1;
 
   private String _title;
-
   private Price _price;
-
   private Rental _each;
   private int _frequentRenterPoints = 0;
 
@@ -41,26 +39,7 @@ public class Movie {
   }
 
   public double getCharge(int daysRented){
-       //Adicionar o trecho de código extraído.
-    //Adicionar o trecho de código extraído.
-    double thisAmount = 0;
-    //determine amounts for each line
-        switch (_each.getMovie().getPriceCode()) {
-           case Movie.REGULAR:
-              thisAmount += 2;
-              if (_each.getDaysRented() > 2)
-                 thisAmount += (_each.getDaysRented() - 2) * 1.5;
-              break;
-           case Movie.NEW_RELEASE:
-              thisAmount += _each.getDaysRented() * 3;
-              break;
-           case Movie.CHILDRENS:
-              thisAmount += 1.5;
-              if (_each.getDaysRented() > 3)
-                 thisAmount += (_each.getDaysRented() - 3) * 1.5;
-               break;
-        }
-    return thisAmount;
+    return _price.getCharge(daysRented);    
    }
 
   public int getFrequentRenterPoints(int daysRented){
